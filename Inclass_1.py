@@ -126,7 +126,7 @@ def binary_search(li, num):
             low = mid + 1
     return False
 ordered_list = [1, 3, 5, 7, 9, 11, 13, 15]
-print(binary_search(ordered_list, 7))  # Output: True
+print(binary_search(ordered_list, 15))  # Output: True
 print(binary_search(ordered_list, 8))  # Output: False
 
 #Question 10
