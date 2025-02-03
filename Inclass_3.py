@@ -49,3 +49,44 @@ def highest_scores(di):
             top_students.add(student)
 
     return top_students
+
+#Question 5
+def course_average(di):
+    averages = {}
+    
+    for student, scores in di.items():
+        midterm1, midterm2, final = scores
+        weighted_avg = (0.3 * midterm1) + (0.3 * midterm2) + (0.4 * final)
+        averages[student] = round(weighted_avg) 
+    return averages
+
+#Question 6
+def list_to_dict(li):
+    frequency_dict = {}
+    
+    for num in li:
+        if num not in frequency_dict:
+            frequency_dict[num] = 1  
+        else:
+            frequency_dict[num] += 1  
+    return frequency_dict
+
+#Question 7
+def dict_to_list(di):
+    result_list = []
+    
+    for key, value in di.items():
+        result_list.extend([key] * value) 
+    return result_list
+
+#Question 8
+def most_cats(di):
+    max_cats = 0
+    person_with_most_cats = ""
+
+    for person, pets in di.items():
+        num_cats = pets.get("Cats", 0)  
+        if num_cats > max_cats:
+            max_cats = num_cats
+            person_with_most_cats = person  
+    return person_with_most_cats
