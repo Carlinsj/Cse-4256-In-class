@@ -11,7 +11,11 @@ def cycle_m(n):
 
 # Question 2
 def cycle_d(n):
-    graph = {i: {(i - 1) % n, (i + 1) % n} for i in range(n)}
+    graph = {}
+    for i in range(n):
+        prev_node = (i - 1) % n  # Previous node (wraps around)
+        next_node = (i + 1) % n  # Next node (wraps around)
+        graph[i] = {prev_node, next_node}
     return graph
 
 # Question 3
@@ -64,3 +68,27 @@ def bfs_m(mat, start_node=0):
                 queue.append(neighbor)
 
     return distances
+
+def test_di_to_mat():
+    di = {
+        0: {2, 4},
+        1: {4},
+        2: {0, 3, 4},
+        3: {2, 4},
+        4: {0, 1, 2, 3}
+    }
+
+    expected_matrix = [
+        [0, 0, 1, 0, 1],
+        [0, 0, 0, 0, 1],
+        [1, 0, 0, 1, 1],
+        [0, 0, 1, 0, 1],
+        [1, 1, 1, 1, 0]
+    ]
+
+    result = di_to_mat(di)
+    assert result == expected_matrix, f"Test failed: Expected {expected_matrix}, got {result}"
+    print("Test passed!")
+
+# Run the test
+test_di_to_mat()
