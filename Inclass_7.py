@@ -68,7 +68,7 @@ def dict_to_incidence(di):
 
     for node in node_list:
         for neighbor in di[node]:
-            if (neighbor, node) not in edges:  # Avoid duplicate edges
+            if (neighbor, node) not in edges: 
                 edges.append((node, neighbor))
 
     num_nodes = len(node_list)
